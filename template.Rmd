@@ -1,0 +1,56 @@
+---
+title: "Simple document"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+I'm an R Markdown document! 
+
+# Section 1
+
+Here's a **code chunk** that samples from 
+a _normal distribution_:
+
+```{r}
+samp = rnorm(100)
+length(samp)
+```
+
+# Section 2
+
+I can take the mean of the sample, too!
+The mean is `r mean(samp)`.
+
+# section 3
+
+This is going to make a plot. First generate a dataframe and use ggplot to make a scatter plot
+
+```{r}
+library(tidyverse)
+
+
+
+
+plot_df<- tibble(
+  x=rnorm(n=1000),
+  y = 1+2*x^2+rnorm(n=1000)
+)
+
+#histogram
+#ggplot(plot_df,aes(x=x))+  geom_histogram()
+
+
+#scatter
+ggplot(plot_df,aes(x=x,y=y))+geom_point()
+
+#ggsave("scatter_plot.pdf",height =4, width =5)
+
+
+
+
+```
+
+
+
+
